@@ -75,7 +75,7 @@ $ react-native run android
   	```
 
 #### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
+[Read it!](https://github.com/ReactWindows/react-native)
 
 1. In Visual Studio add the `RNGpay.sln` in `node_modules/react-native-gpay/windows/RNGpay.sln` folder to their solution, reference from their app.
 2. Open up your `MainPage.cs` app
@@ -207,11 +207,11 @@ PaymentResponse
 
 ## Resources
 
-	✓	 Payment Request
+		▪ Payment Request
 		▪ Introducing the Payment Request API
 		▪ Deep Dive into the Payment Request API
 		▪ Web Payments
-	✓ 	▪ Android Pay
+	 	▪ Android Pay
 		▪ Setup Android Pay
 		▪ Tutorial
 		▪ Brand Guidelines
