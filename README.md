@@ -1,5 +1,45 @@
+# React Native GPay
+[![react-native version](https://img.shields.io/badge/react--native-0.41-0ba7d3.svg?style=flat-square)](http://facebook.github.io/react-native/releases/0.40)
+[![npm](https://img.shields.io/npm/v/react-native-payments.svg?style=flat-square)](https://www.npmjs.com/package/react-native-payments)
+[![npm](https://img.shields.io/npm/dm/react-native-payments.svg?style=flat-square)](https://www.npmjs.com/package/react-native-payments)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+Accept Payments with Android Pay using the [Payment Request API](https://paymentrequest.show).
+
+__Features__
+- __Simple.__ No more checkout forms.
+- __Effective__. Faster checkouts that increase conversion.
+- __Future-proof__. Use a W3C Standards API, supported by companies like Google, Firefox and others.
+- __Cross-platform__. Share payments code between your iOS, Android, and web apps.
+- __Add-ons__. Easily enable support for Stripe or Braintree without add-ons.
+
+
+<div>
+ <img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-3.jpg" />
+<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-1.png" />
+<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-2.png" />
+</div>
+
+
+## Table of Contents
+- [Sample](#Sample)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing Payments](#testing-payments)
+- [Google Pay button](#google-pay-button)
+- [API](#api)
+- [Resources](#resources)
+- [License](#license)
 
 # react-native-gpay
+
+
+## Sample
+You can run the sample by cloning the project and running:
+
+```shell
+$ react-native run android
+```
 
 ## Getting started
 
@@ -44,10 +84,144 @@
 
 
 ## Usage
+  
+  ▪	Setting up Google Pay/Android Pay
+	▪	Importing the Library
+	▪	Initializing the Payment Request
+	▪	Displaying the Payment Request
+	▪	Aborting the Payment Request (Support Only in Andriod)
+	▪	Processing Payments
+	▪	Dismissing the Payment Request
+  
+  ##	Setting up Google Pay/Android Pay
+	
+  Before you can start accepting payments in your App, you'll need to setup Google Pay and/or Android Pay.
+	▪	Android Pay
+
+	1.	Add Android Pay and Google Play Services to your dependencies
+	2.	Enable Android Pay in your Manifest
+
+	Google has documentation on how to do this in their _[Setup Android Pay]        (https://developers.google.com/pay/api/android/guides/setup)_ guide.
+  
+
+##	Importing the Library
+	Once Google Pay/Android Pay is enabled in your app, jump into your app's entrypoint and make the PaymentRequest globally available to your app.
+
+		// index.js
+
 ```javascript
-import RNGpay from 'react-native-gpay';
+import GPay, { GooglePayImage } from 'react-native-gpay'
 
 // TODO: What to do with the module?
-RNGpay;
+GPay;
 ```
+##	 Initializing the Payment Request
+	To initialize a Payment Request, you'll need to provide Payment Request details.
+
+▪  Card Networks Details
+ 
+ ```
+   const cardNetworks = ['AMEX', 'JCB', 'MASTERCARD', 'VISA'] // G-PAY SUPPORT CARD.
+  ```
   
+▪  Payment Request Details
+    
+    The Payment Request is where you defined the forms of payment that you accept. To enable Android Pay, we'll define a payment gateway of android-pay. We're also required to pass a data object to configures android Pay. This is where we provide our merchant id, define the supported card types and the currency we'll be operating in.
+   
+   ```
+   const paymentRequest = {
+  cardPaymentMethodMap: {
+    gateway: {
+      name: 'GATEWAY_NAME', // Identify your gateway and your app's gateway merchant identifier     https://developers.google.com/pay/api/android/reference/object#PaymentMethodTokenizationSpecification
+      merchantId: '055XXXXXXXXXXXXX336',  // YOUR_GATEWAY_MERCHANT_ID
+      clientKey: 'sandbox_XXXXXXXXXXXXndxm44jw', // OPTIONAL YOUR_TOKENIZATION_KEY. Need for BRAINTREE & STRIPE GATEWAY.
+      sdkVersion: 'client.VERSION' // OPTIONAL YOUR Client.VERSION. Need for BRAINTREE & STRIPE GATEWAY.
+    },
+    cardNetworks
+  },
+  transaction: {
+    totalPrice: '11',
+    totalPriceStatus: 'FINAL', // PAYMENT AMOUNT STATUS 
+    currencyCode: 'USD' // CURRENCY CODE
+  },
+  merchantName: 'XXXXXXXXXXXX'  // MERCHANT NAME Information about the merchant requesting payment information
+}
+```
+
+▪  Check Google Pay (Android-Pay) Support.
+
+  This function for check GPay Support Your App and Devices?
+
+  ```
+  onPressCheck = async () => {
+    const isAvailable = await GPay.checkGPayIsEnable(
+      GPay.ENVIRONMENT_TEST, // You can change environment here ENVIRONMENT_TEST,ENVIRONMENT_PRODUCTION
+      cardNetworks
+    ).catch(error => {
+      console.warn(error.toString())
+      return false
+    })
+    this.setState({ isAvailable })
+  }
+  ```
+  
+
+Once you've defined your paymentrequest you're ready to initialize your Payment Request.
+
+```es6
+  const paymentRequestToken = new GPay(GPay.ENVIRONMENT_TEST, paymentRequest);
+```
+
+🚨 Note: On Android, display items are not displayed within the Android Pay view. Instead, the User Flows documentation suggests showing users a confirmation view where you list the display items. When using React Native Payments, show this view after receiving the PaymentResponse.
+
+## Displaying the Payment Request
+
+Now that you've setup your Payment Request Token, displaying it is as simple as calling the show method.
+
+```paymentRequestToken.show();```
+
+## Processing Payments
+
+Now that we know how to initialize, display, and dismiss a Payment Request, let's take a look at how to process payments.
+
+When a user accepts to pay, GPay.show will resolve to a Payment Response.	
+
+```
+  const token = await GPay.show(
+      GPay.ENVIRONMENT_TEST, // You can change environment here ENVIRONMENT_TEST,ENVIRONMENT_PRODUCTION
+      paymentRequest // 
+      ).catch(error => {
+      this.setState({ text: `error: ${error}` })
+      return error;
+    })
+```
+
+You can learn more about server-side decrypting of Payment Tokens on Google Payment Token Format Reference documentation.
+
+## API
+
+NativePayments
+PaymentRequest
+PaymentRequestUpdateEvent
+PaymentResponse
+
+## Resources
+
+	✓	 Payment Request
+		▪ Introducing the Payment Request API
+		▪ Deep Dive into the Payment Request API
+		▪ Web Payments
+	✓ 	▪ Android Pay
+		▪ Setup Android Pay
+		▪ Tutorial
+		▪ Brand Guidelines
+		▪ Gateway Token Approach
+		▪ Network Token Approach
+
+## License
+
+Licensed under the MIT License, Copyright © 2018, Chirac Jadav.
+
+See [LICENSE](https://github.com/JadavChirag/react-native-GPay/blob/master/LICENSE) for more information.
+
+
