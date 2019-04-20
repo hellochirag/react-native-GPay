@@ -26,7 +26,6 @@ __Features__
 <div>
  <img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-3.jpg"/>
 <img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/google-pay-cards.jpg" />
-<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/google_pay_get_started.jpg"/>
 </div>
 
 
