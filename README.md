@@ -1,13 +1,22 @@
 # React Native GPay
+
+
+The source code is **100% Native**, and everything resides in the [/lib](https://github.com/JadavChirag/react-native-GPay.git) folder.
+
+## Show some :heart: and star the repo to support the project
+
 [![react-native version](https://img.shields.io/badge/react--native-0.41-0ba7d3.svg?style=flat-square)](http://facebook.github.io/react-native/releases/0.40)
 [![npm](https://img.shields.io/npm/v/react-native-payments.svg?style=flat-square)](https://www.npmjs.com/package/react-native-payments)
 [![npm](https://img.shields.io/npm/dm/react-native-payments.svg?style=flat-square)](https://www.npmjs.com/package/react-native-payments)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+[![GitHub followers](https://img.shields.io/github/followers/JadavChirag.svg?style=plastic)](https://github.com/JadavChirag?tab=followers) ![Twitter Follow](https://img.shields.io/twitter/follow/JadavRadhe.svg?style=social)
+
 Accept Payments with Android Pay using the [Payment Request API](https://paymentrequest.show).
 
 __Features__
-- __Simple.__ No more checkout forms.
+- __Example.__ No more checkout forms.
 - __Effective__. Faster checkouts that increase conversion.
 - __Future-proof__. Use a W3C Standards API, supported by companies like Google, Firefox and others.
 - __Cross-platform__. Share payments code between your iOS, Android, and web apps.
@@ -15,14 +24,14 @@ __Features__
 
 
 <div>
- <img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-3.jpg" />
-<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-1.png" />
-<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-2.png" />
+ <img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/Google-Pay-3.jpg"/>
+<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/google-pay-cards.jpg" />
+<img width="280px" src="https://github.com/JadavChirag/react-native-GPay/blob/master/image/google_pay_get_started.jpg"/>
 </div>
 
 
 ## Table of Contents
-- [Sample](#Sample)
+- [Example](#Example)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing Payments](#testing-payments)
@@ -33,8 +42,9 @@ __Features__
 
 # react-native-gpay
 
+## 💻 Installation
 
-## Sample
+## Example
 You can run the sample by cloning the project and running:
 
 ```shell
@@ -217,8 +227,34 @@ PaymentResponse
 		▪ Brand Guidelines
 		▪ Gateway Token Approach
 		▪ Network Token Approach
+		
+## 💰 Donations
 
-## License
+This project needs you! If you would like to support this project's further development, the creator of this project or the continuous maintenance of this project, feel free to donate. Your donation is highly appreciated (and I love food, coffee and beer). Thank you!
+
+## 👨 Developed By
+
+```
+Jadav Chirag
+```
+
+
+<a href="https://twitter.com/JadavRadhe?s=09"><img src="https://user-images.githubusercontent.com/35039342/55471524-8e24cb00-5627-11e9-9389-58f3d4419153.png" width="60"></a>
+<a href="https://www.linkedin.com/in/jadav-chirag-8945a2156/"><img src="https://user-images.githubusercontent.com/35039342/55471530-94b34280-5627-11e9-8c0e-6fe86a8406d6.png" width="60"></a>
+<a href="https://www.facebook.com/profile.php?id=100007883057762"><img src="https://github.com/aritraroy/social-icons/blob/master/facebook-icon.png?raw=true" width="60"></a>
+
+
+# 👍 How to Contribute
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
+
+		
+
+## 📃 License
 
 Licensed under the MIT License, Copyright © 2018, Chirac Jadav.
 
