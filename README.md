@@ -261,4 +261,9 @@ Licensed under the MIT License, Copyright © 2018, Chirac Jadav.
 
 See [LICENSE](https://github.com/JadavChirag/react-native-GPay/blob/master/LICENSE) for more information.
 
+## 📃 Blog
+
+Read [MEDIUM](https://medium.com/@hello_chirag/integrate-google-pay-android-pay-into-react-native-mobile-app-4701198e22a9) for more information.
+
+
 
